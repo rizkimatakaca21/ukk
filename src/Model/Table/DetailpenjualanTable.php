@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -58,8 +59,7 @@ class DetailpenjualanTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
-        // CHANGED: PenjualanID tidak lagi wajib diisi dari form.
-        // Saat disimpan lewat relasi hasMany, CakePHP mengisinya otomatis.
+        
         $validator
             ->integer('PenjualanID')
             ->allowEmptyString('PenjualanID');

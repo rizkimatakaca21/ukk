@@ -15,6 +15,8 @@
  */
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
+
+$identity = $this->request->getAttribute('identity');
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,14 +41,22 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="top-nav-title">
             <a href="<?= $this->Url->build('/') ?>"><span>Kasir</span>Canggih</a>
         </div>
-        <div class="log">
-            <?php if ($this->request->getAttribute('identity')): ?>
-            <?= $this->Form->postLink(
-            __('Logout'),
-            ['controller' => 'User', 'action' => 'logout'],
-            ['class' => 'button']
-        ) ?>
-        <?php endif; ?>
+        <div style="display: flex; gap: 4rem; align-items: center;">
+            <?php if ($identity): ?>
+                <?php if ($identity->get('role') !== 'petugas'): ?>
+                    <?= $this->Form->postLink(
+                        __('User'),
+                        ['controller' => 'User', 'action' => 'view'],
+                        ['class' => 'text', 'style' => 'color: purple; ']
+                    ) ?>
+                <?php endif; ?>
+
+                <?= $this->Form->postLink(
+                    __('Logout'),
+                    ['controller' => 'User', 'action' => 'logout'],
+                    ['class' => 'text', 'style' => 'color: purple; ']
+                ) ?>
+            <?php endif; ?>
         </div>
     </nav>
     <main class="main">

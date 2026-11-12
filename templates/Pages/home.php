@@ -9,9 +9,6 @@
                 <a href = "produk" style = "color: purple;">Produk</a>
             </li>
             <li>
-                <a href = "detailpenjualan" style = "color: purple;">Detail Penjualan</a>
-            </li>
-            <li>
                 <a href = "penjualan" style = "color: purple;">Penjualan</a>
             </li>
             <li>

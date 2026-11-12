@@ -13,7 +13,7 @@ class UserController extends AppController
 {
 
     /**
-     * ADDED: Authentication settings.
+     * ADDED: Authentication settings + pembatasan akses hanya untuk admin.
      *
      * @param \Cake\Event\EventInterface $event The event.
      * @return void
@@ -24,6 +24,18 @@ class UserController extends AppController
 
         // CHANGED: 'add' removed so only logged-in users can create users.
         $this->Authentication->allowUnauthenticated(['login']);
+
+        $action = $this->request->getParam('action');
+        if (in_array($action, ['login', 'logout'])) {
+            return;
+        }
+
+        $identity = $this->Authentication->getIdentity();
+        if ($identity && $identity->get('role') !== 'admin') {
+            $this->Flash->error(__('Anda tidak punya akses ke halaman ini'));
+
+            $event->setResult($this->redirect(['controller' => 'Pages', 'action' => 'display', 'home']));
+        }
     }
 
     /**
