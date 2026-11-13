@@ -31,7 +31,7 @@ class UserController extends AppController
         }
 
         $identity = $this->Authentication->getIdentity();
-        if ($identity && $identity->get('role') !== 'admin') {
+        if ($identity && $identity->get('role') !== 'administrator') {
             $this->Flash->error(__('Anda tidak punya akses ke halaman ini'));
 
             $event->setResult($this->redirect(['controller' => 'Pages', 'action' => 'display', 'home']));
@@ -49,7 +49,7 @@ class UserController extends AppController
         $result = $this->Authentication->getResult();
         if ($result && $result->isValid()) {
             $role = $this->Authentication->getIdentity()->get('role');
-            if ($role === 'petugas') {
+            if ($role) {
                 return $this->redirect(['controller' => 'Pages', 'action' => 'display', 'home']);
             }
             return $this->redirect(['controller' => 'User', 'action' => 'index']);

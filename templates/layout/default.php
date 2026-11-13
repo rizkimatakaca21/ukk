@@ -24,7 +24,7 @@ $identity = $this->request->getAttribute('identity');
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= $cakeDescription ?>:
+        <?= $cakeDescription = 'KasirCanggih';?>:
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
@@ -46,7 +46,7 @@ $identity = $this->request->getAttribute('identity');
                 <?php if ($identity->get('role') !== 'petugas'): ?>
                     <?= $this->Form->postLink(
                         __('User'),
-                        ['controller' => 'User', 'action' => 'view'],
+                        ['controller' => 'User', 'action' => 'index'],
                         ['class' => 'text', 'style' => 'color: purple; ']
                     ) ?>
                 <?php endif; ?>

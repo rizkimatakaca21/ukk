@@ -1,58 +1,86 @@
-# CakePHP Application Skeleton
+# KasirCanggih
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=5.x)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+Aplikasi kasir berbasis web untuk mengelola produk, pelanggan, dan transaksi penjualan. Dibuat dengan **CakePHP** dan **MySQL** sebagai tugas UKK.
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 5.x.
+## Fitur
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+**Autentikasi**
+- Login dan logout
+- Pembatasan akses berdasarkan role (administrator dan petugas)
 
-## Installation
+**Manajemen Produk**
+- Tambah, lihat, ubah, dan hapus data produk
+- Pengelolaan harga dan stok barang
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+**Manajemen Pelanggan**
+- Tambah, lihat, ubah, dan hapus data pelanggan
 
-If Composer is installed globally, run
+**Manajemen User**
+- Kelola akun pengguna (khusus administrator)
 
-```bash
-composer create-project --prefer-dist cakephp/app
-```
+**Transaksi Penjualan**
+- Beberapa produk dalam satu nota
+- Tombol tambah dan hapus baris produk
+- Harga terisi otomatis saat produk dipilih
+- Total dihitung otomatis
+- Validasi stok sebelum transaksi disimpan
+- Stok berkurang otomatis setelah penjualan
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+## Teknologi
 
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
+- CakePHP 5.4
+- PHP 8.2
+- MySQL (XAMPP dan phpMyAdmin)
+- Milligram CSS
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
+## Akun untuk Mencoba
 
-```bash
-bin/cake server -p 8765
-```
+*Administrator*
+- Username: `aho`
+- Password: `54321`
 
-Then visit `http://localhost:8765` to see the welcome page.
+*Petugas*
+- Username: `Rizki`
+- Password: `12345`
 
-## Demo app
+## Tampilan Aplikasi
 
-Check out the [5.x-demo branch](https://github.com/cakephp/app/tree/5.x-demo), which contains demo migrations and a seeder.
-See the [README](https://github.com/cakephp/app/blob/5.x-demo/README.md) on how to get it running.
+*Login*
 
-## Update
+![Login](image.png)
 
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
+*Menu - Petugas*
 
-## Configuration
+![Menu - Petugas](image-1.png)
 
-Read and edit the environment specific `config/app_local.php` and set up the
-`'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
+*Menu - Admin*
 
-## Layout
+![Menu - Admin](image-2.png)
 
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+*User*
+
+![User](image-3.png)
+
+![User - Add](image-11.png)
+
+*Pelanggan*
+
+![Pelanggan - Tabel](image-4.png)
+
+![Pelanggan - Add](image-5.png)
+
+*Penjualan*
+
+![Penjualan - Tabel](image-6.png)
+
+![Penjualan - Add](image-8.png)
+
+*Produk*
+
+![Produk - Tabel](image-9.png)
+
+![Produk - Add](image-10.png)
+
+## Pembuat
+
+Mokhammad Rizky - XI RPL 2 - SMKN 11 Malang
